@@ -1,0 +1,8 @@
+/node_modules
+**/docBanao-main/*
+.DS_Store
+
+# React static stuff
+tmp
+artifacts
+content

@@ -1,0 +1,10 @@
+const createActionTypes = (name) => ({
+  CREATE: `${name}_CREATE`,
+  EDIT: `${name}_EDIT`,
+  DELETE: `${name}_DELETE`,
+})
+
+const FILE = createActionTypes("FILE")
+const FOLDER = createActionTypes("FOLDER")
+
+export { FILE, FOLDER }
