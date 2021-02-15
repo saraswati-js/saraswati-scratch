@@ -5,11 +5,12 @@ import PostBody from '../../components/post-body'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import Layout from '../../components/layout'
-import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import { mdxToString, stringToMdx} from '../../lib/mdxSerialization'
+
+import { getAllPosts } from '../../lib/api'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -21,8 +22,9 @@ export default function Post({ post, morePosts, preview }) {
   const newPath = pathArray.slice(0, pathArray.length - 1).join('/')
 
   return (
-    <Layout preview={preview}>
-      <Container>
+    <div>
+    {/* <div preview={preview}> */}
+      {/* <Container>
         <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -45,44 +47,49 @@ export default function Post({ post, morePosts, preview }) {
             </article>
           </>
         )}
-      </Container>
-    </Layout>
+      </Container> */}
+    </div>
   )
 }
 
 export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
-    'title',
-    'date',
-    'slug',
-    'author',
-    'content',
-    'ogImage',
-    'coverImage',
-  ])
-  const content = await mdxToString(post.content || '') 
+  console.log(params)
+  // const post = getPostBySlug(params.slug, [
+  //   'title',
+  //   'date',
+  //   'slug',
+  //   'author',
+  //   'content',
+  //   'ogImage',
+  //   'coverImage',
+  // ])
+
+  // console.log(post)
+
+  // const content = await mdxToString(post.content || '') 
 
   return {
     props: {
       post: {
-        ...post,
-        content,
+        // ...post,
+        // content,
       },
     },
   }
 }
 
 export async function getStaticPaths() {
-  const posts = getAllPosts(['slug'])
+  const posts = await getAllPosts()
+
+  console.log(posts[0].meta)
 
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      }
-    }),
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.meta.slug,
+        id: post.meta.slug,
+      },
+    })),
     fallback: false,
   }
 }

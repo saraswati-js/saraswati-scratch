@@ -1,16 +1,17 @@
-import fs from 'fs'
-import { join, extname } from 'path'
-import matter from 'gray-matter'
-import klaw from 'klaw'
-import readdirp from 'readdirp'
+console.clear()
 
-const slug = (sidebar, title) => (
+const fs = require('fs')
+const { join, extname } = require('path')
+const matter = require('gray-matter')
+const readdirp = require('readdirp')
+
+const contentSlug = (sidebar, title) => (
   [sidebar.join('/'), title.replace(/\s/g, '-')].join('/')
 )
 
-export const getAllPosts = async (fields = []) => {
-  const contentpath = process.env.CONTENT_PATH 
-  // const contentpath = join(__dirname, '../', '_posts')
+const getAllPosts = async (dirpath = __dirname) => {
+  // const contentpath = process.env.CONTENT_PATH 
+  const contentpath = join(__dirname, '../', '_posts')
   const contents = []
 
   for await (const entry of readdirp(contentpath)) {
@@ -24,17 +25,20 @@ export const getAllPosts = async (fields = []) => {
     const file = [contentpath, path].join('/')
     const fileContents = fs.readFileSync(file, 'utf8')
     const { data, content } = matter(fileContents)
+    const slug = contentSlug(data.sidebar, data.title)
 
     contents.push({
-      // [slug(data.sidebar, data.title)]: {
+      [slug]: {
         content,
         meta: {
-          slug: slug(data.sidebar, data.title),
-          ...data
+          slug,
+        ...data
         },
-      // }
+      }
     })
   }
 
   return contents
 }
+
+getAllPosts()

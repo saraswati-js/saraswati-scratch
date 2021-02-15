@@ -5,18 +5,13 @@ var path = require('path')
 var mimes = require('mime/lite')
 var visit = require('unist-util-visit')
 
-// console.log(process)
-
 export default function embedImages() {
-  console.log('asd')
   return transformer
 }
 
 function transformer(tree, file, done) {
   console.log('hey, im linked in here')
   var count = 0
-
-  console.log(JSON.stringify(tree, null, ''))
 
   visit(tree, 'image', visitor)
 
@@ -25,7 +20,6 @@ function transformer(tree, file, done) {
   }
 
   function visitor(node) {
-    console.log(node)
     node.url = 'andric mother fucker'
     // var url = node.url
 

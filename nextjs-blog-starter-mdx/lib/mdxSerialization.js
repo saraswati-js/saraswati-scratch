@@ -10,12 +10,6 @@ const components = file => slug => ({
   Test,
   h1: ({ children }) => <h1>{children}</h1>,
   img: ({ src, alt }) => {
-    console.log(process.env.ROOT)
-
-    console.log(path.join(
-      file, src
-    ))
-
     const isRelative = ['..', './'].includes(src.slice(0, 2))
     let srcUrl = src
 
@@ -32,8 +26,6 @@ const components = file => slug => ({
         '_posts',
         src
       )
-
-      // console.log(require(srcUrl))
     }
 
     return (
