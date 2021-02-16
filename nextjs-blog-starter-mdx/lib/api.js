@@ -4,14 +4,13 @@ import matter from 'gray-matter'
 import klaw from 'klaw'
 import readdirp from 'readdirp'
 
-const slug = (sidebar, title) => (
+const contentSlug = (sidebar, title) => (
   [sidebar.join('/'), title.replace(/\s/g, '-')].join('/')
 )
 
-export const getAllPosts = async (fields = []) => {
+export const getAllPosts = async () => {
   const contentpath = process.env.CONTENT_PATH 
-  // const contentpath = join(__dirname, '../', '_posts')
-  const contents = []
+  let contents = {}
 
   for await (const entry of readdirp(contentpath)) {
     const { path } = entry
@@ -24,16 +23,18 @@ export const getAllPosts = async (fields = []) => {
     const file = [contentpath, path].join('/')
     const fileContents = fs.readFileSync(file, 'utf8')
     const { data, content } = matter(fileContents)
+    const slug = contentSlug(data.sidebar, data.title)
 
-    contents.push({
-      // [slug(data.sidebar, data.title)]: {
+    contents = {
+      [slug]: {
         content,
         meta: {
-          slug: slug(data.sidebar, data.title),
-          ...data
+          slug,
+          ...data,
         },
-      // }
-    })
+      },
+      ...contents,
+    }
   }
 
   return contents

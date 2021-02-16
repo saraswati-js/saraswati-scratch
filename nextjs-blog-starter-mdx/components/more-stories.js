@@ -5,7 +5,6 @@ function isEmpty(obj) {
   return Object.keys(obj).length === 0;
 }
 
-
 export default function MoreStories({ posts }) {
   return (
     <section>
@@ -14,7 +13,7 @@ export default function MoreStories({ posts }) {
       </h2>
       <div>
         {posts.map((post) => (
-          <h3 key={post.meta.file}>
+          <h3 key={post.meta.slug}>
             <Link as={`/posts/${post.meta.slug}`} href="/posts/[slug]">
               <a className="hover:underline">{post.meta.title}</a>
             </Link>

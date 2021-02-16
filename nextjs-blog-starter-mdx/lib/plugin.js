@@ -10,7 +10,6 @@ export default function embedImages() {
 }
 
 function transformer(tree, file, done) {
-  console.log('hey, im linked in here')
   var count = 0
 
   visit(tree, 'image', visitor)

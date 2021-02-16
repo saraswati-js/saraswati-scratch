@@ -14,17 +14,20 @@ import { getAllPosts } from '../../lib/api'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
 
-  const pathArray = post.file.split('/')
-  const newPath = pathArray.slice(0, pathArray.length - 1).join('/')
+  // console.log(post)
+  // console.log('did i get into here?')
+  
+  // if (!router.isFallback && !post?.slug) {
+  //   return <ErrorPage statusCode={404} />
+  // }
+  // 
+  // const pathArray = post.file.split('/')
+  // const newPath = pathArray.slice(0, pathArray.length - 1).join('/')
 
   return (
-    <div>
-    {/* <div preview={preview}> */}
-      {/* <Container>
+    <div preview={preview}>
+      <Container>
         <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -35,44 +38,30 @@ export default function Post({ post, morePosts, preview }) {
                 <title>
                   {post.title} | Next.js Blog Example with {CMS_NAME}
                 </title>
-                <meta property="og:image" content={post.ogImage.url} />
               </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
-                date={post.date}
-                author={post.author}
-              />
-              <PostBody> {stringToMdx(post.content, newPath)} </PostBody>
+              <h1>Title: {post.title}</h1>
+              <br />
+              <PostBody> {stringToMdx(post.content)} </PostBody>
+              {/* <PostBody>{post.content}</PostBody> */}
             </article>
           </>
         )}
-      </Container> */}
+      </Container>
     </div>
   )
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params)
-  // const post = getPostBySlug(params.slug, [
-  //   'title',
-  //   'date',
-  //   'slug',
-  //   'author',
-  //   'content',
-  //   'ogImage',
-  //   'coverImage',
-  // ])
-
-  // console.log(post)
-
-  // const content = await mdxToString(post.content || '') 
+  const posts = await getAllPosts()
+  const post = posts[params.slug.join('/')]
+  // const content = post.content
+  const content = await mdxToString(post.content || '')
 
   return {
     props: {
       post: {
-        // ...post,
-        // content,
+        title: post.meta.title,
+        content,
       },
     },
   }
@@ -81,15 +70,16 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const posts = await getAllPosts()
 
-  console.log(posts[0].meta)
-
-  return {
-    paths: posts.map((post) => ({
+  const staticPaths = {
+    fallback: false,
+    paths: Object.keys(posts).map((post) => ({
       params: {
-        slug: post.meta.slug,
-        id: post.meta.slug,
+        slug: post.split('/'),
       },
     })),
-    fallback: false,
   }
+
+  // clippy.copy(JSON.stringify(staticPaths), () => { console.log('Got it') })
+
+  return staticPaths
 }
