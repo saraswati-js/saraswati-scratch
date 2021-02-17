@@ -10,26 +10,16 @@ const components = file => slug => ({
   Test,
   h1: ({ children }) => <h1>{children}</h1>,
   img: ({ src, alt }) => {
-    const isRelative = ['..', './'].includes(src.slice(0, 2))
-    let srcUrl = src
 
-    if (!isRelative) {
-      return (
-        <img alt={alt} src={src} />
-      )
-    }
+    console.log('file:', file)
+    console.log('slug:', slug)
+    console.log('image:', src)
     
-    if (isRelative) {
-      srcUrl = '/api/img'
-      srcUrl = path.join(
-        process.env.ROOT,
-        '_posts',
-        src
-      )
-    }
-
     return (
-      <img alt={alt} src="" />
+      <div>
+        THIS IS AN IMAGE YO!
+        <img alt={alt} src={src} />
+      </div>
     )
   }
 })
