@@ -1,7 +1,7 @@
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
 import embed from './plugin'
-import Test from '../components/test'
+import Test from './test'
 import linkHeadings from 'remark-autolink-headings'
 import path from 'path'
 // const components = {Test}

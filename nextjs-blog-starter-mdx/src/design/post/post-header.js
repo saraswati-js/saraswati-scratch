@@ -1,7 +1,7 @@
 import Avatar from '../components/avatar'
-import DateFormatter from '../lib/dates/date-formatter'
+import DateFormatter from '../../lib/dates/date-formatter'
 import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
+import PostTitle from './post-title'
 
 export default function PostHeader({ title, coverImage, date, author }) {
   return (

@@ -1,0 +1,1 @@
+These are post specific components. Move under `../pages`
