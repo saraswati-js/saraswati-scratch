@@ -1,9 +1,7 @@
 import Link from 'next/link'
-import PostPreview from '../components/post-preview'
 
-function isEmpty(obj) {
-  return Object.keys(obj).length === 0;
-}
+// import PostPreview from '../components/post-preview'
+// const isEmpty = obj => Object.keys(obj).length === 0
 
 export default function MoreStories({ posts }) {
   return (

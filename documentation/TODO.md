@@ -14,6 +14,9 @@
 - Update all packages
 - Reorg code
   - ~~Move all code around so it's under `/src`~~
+  - Move differing page components to proper directories
+- Rename `./src/components/` to `./src/theme`
+- Export the theme & all components to it's own package under `@saraswati-js/demo-content`
 - Add more `remark` plugins
 - Create sample layout
 - Add more page types
