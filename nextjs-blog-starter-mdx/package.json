@@ -4,7 +4,7 @@
   "scripts": {
     "build": "next build && next export",
     "demo-content": "demo-content --count=200 --dir=./_posts",
-    "images": "markdown-modifier --startdir=./_posts --destdir=./public/",
+    "images": "markdown-modifier --startdir=./_posts --destdir=./public/doc-images",
     "dev": "next",
     "saraswati:dev": "run-p dev images",
     "modifier": "markdown-modifier",
