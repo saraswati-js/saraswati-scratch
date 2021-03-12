@@ -1,11 +1,10 @@
-import Container from '../components/container'
-import MoreStories from '../components/more-stories'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import { getAllPosts } from '../lib/api'
+import Container from '../design/components/container'
+import MoreStories from '../design/pages/more-stories'
+import HeroPost from '../design/pages/hero-post'
+import Intro from '../design/pages/intro'
+import Layout from '../design/layout'
+import { getAllPosts } from '../lib/markdown/api'
 import Head from 'next/head'
-import { CMS_NAME } from '../lib/constants'
 
 export default function Index({ allPosts }) {
   const morePosts = Object.values(allPosts).slice(1)
@@ -14,7 +13,7 @@ export default function Index({ allPosts }) {
     <>
       <Layout>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>Next.js Blog Example with Markdown</title>
         </Head>
         <Container>
           <Intro />

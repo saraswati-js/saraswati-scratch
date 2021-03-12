@@ -12,9 +12,11 @@
   - Might be best to do [`Multi Zone`](https://nextjs.org/docs/advanced-features/multi-zones)
     - Save time on compiling and pushing to, say, `S3`
 - Update all packages
-- Move all code around so it's under `/src`
-  - Remove the blog code stuff
-  - Remove the old styles and use my own
+- Reorg code
+  - ~~Move all code around so it's under `/src`~~
+  - Move differing page components to proper directories
+- Rename `./src/components/` to `./src/theme`
+- Export the theme & all components to it's own package under `@saraswati-js/demo-content`
 - Add more `remark` plugins
 - Create sample layout
 - Add more page types
@@ -31,6 +33,7 @@
     - This should be done in the tree.
 - Figure out logging and alerts
 - Layouts based on runtime.
+- Figure out zones
 
 ## Utilities
 ### `@saraswati-js/markdown-modifier`
