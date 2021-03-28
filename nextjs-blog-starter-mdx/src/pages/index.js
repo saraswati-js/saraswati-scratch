@@ -6,6 +6,8 @@ import Layout from '../design/layout'
 import { getAllPosts } from '../lib/markdown/api'
 import Head from 'next/head'
 
+import Sidebar from '../design/components/sidebar'
+
 export default function Index({ allPosts }) {
   const morePosts = Object.values(allPosts).slice(1)
 
@@ -17,6 +19,11 @@ export default function Index({ allPosts }) {
         </Head>
         <Container>
           <Intro />
+          
+          <div className="left-side">
+            <Sidebar />
+          </div>
+
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>

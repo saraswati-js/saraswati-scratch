@@ -129,6 +129,7 @@ export const content2 = [{
 
 export const oldContent = [{
   name: 'Audi',
+  label: 'Audi',
   Icon: DriveEtaIcon,
   children: [{
     name: 'Supercars',
