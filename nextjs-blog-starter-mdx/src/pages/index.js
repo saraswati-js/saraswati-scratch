@@ -23,8 +23,11 @@ export default function Index({ allPosts }) {
           <div className="left-side">
             <Sidebar />
           </div>
-
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          
+          <div className="right-side">
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          </div>
+          
         </Container>
       </Layout>
     </>

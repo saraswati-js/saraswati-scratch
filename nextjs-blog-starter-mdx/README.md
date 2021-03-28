@@ -1,49 +1,48 @@
 # A statically generated blog example using Next.js and mdx
+1. Will define how this whole thing works.
+  1. Then I break down each part into it's own packages.
+1. Will eventually become the actual runner for an org's layouts and content
 
-So, what to do
+## Todo Topics
+[`SIDEBAR`], [`PLUGINS`], [`THEMES`], [`ZONES`], [`JSONDB`]
 
-Figure out proper solutions for this
-1. `[IMG]` ~~Get the image API finished so that works correctly~~
-1. `[IMP]` ~~Get imports to work~~
-1. `[STC]` ~~Test the static-ness of this once it's been built.~~
-1. `[PLG]` Get plugins to work
-1. `[REG]` Reorg the code
-1. `[TPL]` Figure out if I can make a template & layout functions or HoC components out of next.
-
-## IMG
-I will go forward with the solution that I put together before. I will use the markdown image mover that will take an image, move it to a directory in `public` and relink the markdown file. The only requirement here is that I need to be able to run it as a secondary process.
-
-This will be the same exact solution for partials.
-
-Only thing is to figure out how to not include things with backticks
-
-Replace: 
-```md
-![image](./path/to/image.png)
-```
-
-Don't replace:
-```md
-`![image](./path/to/image.png)`
-```
-
----
-
-Second part is to determine how to handle `content path`. Makes most sense to be set in `next.config.js`:
-
-```js  
-env: {
-  CONTENT_PATH: __dirname,
-}
-```
-
-The post's file path (relative to `CONTENT_PATH`) should be added to the post config.
-
-
-## PLG
-* Math
-* UML
-* Code
-* Playgounds
+So, what to do next
+1. [SIDEBAR] Get the sidebar working
+  * ~~Drawing the sidebar is easy~~
+  * The sidebar link needs to work
+  * Allow for the use of icons
+    * Shouldn't break if icon doesn't exist
+  * Active url = active item
+  * Determine the urls
+  * Determine how to do the project base part (subdomain, not subdomain)
+  * Get a better hashing algo for short strings (use for sharing)
+    - https://github.com/bibig/node-shorthash
+    - https://github.com/joakimbeng/short-hash/blob/master/src/index.js (hash-string)
+    - http://sahatyalkabov.com/jsrecipes/#!/backend/generating-short-hashes
+    - https://www.npmjs.com/package/string-hash
+  * Pull out tags to make a DB out of it
+  * Determine the
+  * Would it make sense to have a gear icon?
+    - To get git url
+    - To view different version
+  * How to handle version'd content?
+1. [PLUGINS] Get some plugins in there and running
+  * Math
+  * UML
+  * Code
+  * Playgounds
+1. [THEMES] Put in a proper layout
+  * Just buy one for now and figure it out later
+  * Perhaps you can get Amanda to help
+  * Do good styles
+1. [ZONES] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
+  * This is prolly how i'll do the project url
+  * If it is then I need to figure out how to do the runner specifically for a zone
+1. [JSONDB] Use a JSON db so I'm not writing directly to files
+  * This way, hopefully, I can switch things out.
+  * Examples
+    * https://github.com/typicode/lowdb
+    * https://www.npmjs.com/package/simple-json-db
+    * https://www.npmjs.com/package/node-json-db
 
 
