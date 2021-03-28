@@ -9,11 +9,12 @@ export default function MoreStories({ posts }) {
       <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
         More Stories
       </h2>
-      <div>
+      
+      <div className="body-side">
         {posts.map((post) => (
           <h3 key={post.meta.slug}>
             <Link as={`/posts/${post.meta.slug}`} href="/posts/[slug]">
-              <a className="hover:underline">{post.meta.title}</a>
+              <a className="hover:underline">→ {post.meta.title}</a>
             </Link>
           </h3>
         ))}

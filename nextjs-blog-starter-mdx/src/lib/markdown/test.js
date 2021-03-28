@@ -2,6 +2,6 @@ function alertclicked () {
   alert('hey')
 }
 
-export default () => (
-  <div onClick={alertclicked}>Hello</div>
-)
+export default function Test() {
+  return <div onClick={alertclicked}>Hello</div>
+}
