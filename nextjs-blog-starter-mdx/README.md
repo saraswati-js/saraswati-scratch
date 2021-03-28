@@ -47,3 +47,8 @@ So, what to do next
 1. [`DOCS`] Make sure sure to add
     * hero image
     * sidebar icon
+    * Make an async runner that will constantly update the dbs
+        * sidebar db
+        * tags db
+        * project dbs
+        * etc
