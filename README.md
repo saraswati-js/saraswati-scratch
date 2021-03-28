@@ -35,19 +35,6 @@ For instance I tested out each of the markdown utilities directly in this repo t
         - To get git url
         - To view different version
     * How to handle version'd content?
-1. [`PLUGINS`] Get some plugins in there and running
-    * Math
-    * UML
-    * Code
-    * Playgounds
-    * Youtube (video url) converter
-1. [`THEMES`] Put in a proper layout
-    * Just buy one for now and figure it out later
-    * Perhaps you can get Amanda to help
-    * Do good styles
-1. [`ZONES`] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
-    * This is prolly how i'll do the project url
-    * If it is then I need to figure out how to do the runner specifically for a zone
 1. [`JSONDB`] Use a JSON db so I'm not writing directly to files myself.
     * This way, hopefully, I can switch things out with a proper DB if required.
         * If not I will need to write a wrapper around it and i'm not sure how effective that will be `¯\_(ツ)_/¯`
@@ -56,6 +43,8 @@ For instance I tested out each of the markdown utilities directly in this repo t
     * I'm no sure yet but it might also be a good idea to separate out the binaries from the packages as well but that seems like overkill.
     * Rename each one of them. They are terribly named.
     * Use chockidar, in the future, to keep the DBs up to date.
+    * Make sure all utilities (for tests) are using `demo-content`
+    * Make sure all utility bin starts with `@saraswati-js:` and an alias `@sjs:`
 1. [`DOCS`] Make sure sure to add
     * hero image
     * sidebar icon
@@ -64,6 +53,19 @@ For instance I tested out each of the markdown utilities directly in this repo t
         * tags db
         * project dbs
         * etc
+1. [`ZONES`] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
+    * This is prolly how i'll do the project url
+    * If it is then I need to figure out how to do the runner specifically for a zone
+1. [`THEMES`] Put in a proper layout
+    * Just buy one for now and figure it out later
+    * Perhaps you can get Amanda to help
+    * Do good styles
+1. [`PLUGINS`] Get some plugins in there and running
+    * Math
+    * UML
+    * Code
+    * Playgounds
+    * Youtube (video url) converter
 
 ---
 [1] Not completely but rather I put together something with the "the most complete" feature set that I'm thinking of which will often encompase the most important functionality. 
