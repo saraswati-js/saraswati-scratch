@@ -44,5 +44,6 @@ So, what to do next
     * https://github.com/typicode/lowdb
     * https://www.npmjs.com/package/simple-json-db
     * https://www.npmjs.com/package/node-json-db
-
-
+1. [DOCS] Make sure sure to add
+  * hero image
+  * sidebar icon
