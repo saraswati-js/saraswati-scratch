@@ -17,6 +17,7 @@ For instance I tested out each of the markdown utilities directly in this repo t
 [`SIDEBAR`], [`PLUGINS`], [`THEMES`], [`ZONES`], [`JSONDB`], [`DOCS]
 
 So, what to do next
+1. Upgrade to react 17
 1. [`SIDEBAR`] Get the sidebar working
     * ~~Drawing the sidebar is easy~~
     * `For now ignore all projects/zones and don't add it to the URL`
