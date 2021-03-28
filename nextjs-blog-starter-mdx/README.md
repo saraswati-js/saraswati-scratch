@@ -4,10 +4,10 @@
 1. Will eventually become the actual runner for an org's layouts and content
 
 ## Todo Topics
-[`SIDEBAR`], [`PLUGINS`], [`THEMES`], [`ZONES`], [`JSONDB`]
+[`SIDEBAR`], [`PLUGINS`], [`THEMES`], [`ZONES`], [`JSONDB`], [`DOCS]
 
 So, what to do next
-1. [SIDEBAR] Get the sidebar working
+1. [`SIDEBAR`] Get the sidebar working
   * ~~Drawing the sidebar is easy~~
   * The sidebar link needs to work
   * Allow for the use of icons
@@ -26,24 +26,24 @@ So, what to do next
     - To get git url
     - To view different version
   * How to handle version'd content?
-1. [PLUGINS] Get some plugins in there and running
+1. [`PLUGINS`] Get some plugins in there and running
   * Math
   * UML
   * Code
   * Playgounds
-1. [THEMES] Put in a proper layout
+1. [`THEMES`] Put in a proper layout
   * Just buy one for now and figure it out later
   * Perhaps you can get Amanda to help
   * Do good styles
-1. [ZONES] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
+1. [`ZONES`] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
   * This is prolly how i'll do the project url
   * If it is then I need to figure out how to do the runner specifically for a zone
-1. [JSONDB] Use a JSON db so I'm not writing directly to files
+1. [`JSONDB`] Use a JSON db so I'm not writing directly to files
   * This way, hopefully, I can switch things out.
   * Examples
     * https://github.com/typicode/lowdb
     * https://www.npmjs.com/package/simple-json-db
     * https://www.npmjs.com/package/node-json-db
-1. [DOCS] Make sure sure to add
+1. [`DOCS`] Make sure sure to add
   * hero image
   * sidebar icon
