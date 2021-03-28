@@ -9,7 +9,7 @@
 So, what to do next
 1. [`SIDEBAR`] Get the sidebar working
     * ~~Drawing the sidebar is easy~~
-    * <span style="color: red">For now ignore all projects/zones and don't add it to the URL</span>
+    * `For now ignore all projects/zones and don't add it to the URL`
     * The sidebar link needs to work
     * Allow for the use of icons
       *  Shouldn't break if icon doesn't exist
