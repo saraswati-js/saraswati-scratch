@@ -15,8 +15,13 @@ For instance I tested out each of the markdown utilities directly in this repo t
 
 ## Todo Topics
 1. Upgrade to react 17
+1. [`UTILS`] Make them one package
+    * I'm no sure yet but it might also be a good idea to separate out the binaries from the packages as well but that seems like overkill.
+    * Rename each one of them. They are terribly named.
+    * Use chockidar, in the future, to keep the DBs up to date.
+    * Make sure all utilities (for tests) are using `demo-content`
+    * Make sure all utility bin starts with `@saraswati-js:` and an alias `@sjs:`
 1. [`SIDEBAR`] Get the sidebar working
-    * ~~Drawing the sidebar is easy~~
     * `For now ignore all projects/zones and don't add it to the URL`
     * The sidebar link needs to work
     * Allow for the use of icons
@@ -39,12 +44,6 @@ For instance I tested out each of the markdown utilities directly in this repo t
     * This way, hopefully, I can switch things out with a proper DB if required.
         * If not I will need to write a wrapper around it and i'm not sure how effective that will be `¯\_(ツ)_/¯`
     * Update utilities to use the new JSON DB implementation
-1. [`UTILS`] Make them one package
-    * I'm no sure yet but it might also be a good idea to separate out the binaries from the packages as well but that seems like overkill.
-    * Rename each one of them. They are terribly named.
-    * Use chockidar, in the future, to keep the DBs up to date.
-    * Make sure all utilities (for tests) are using `demo-content`
-    * Make sure all utility bin starts with `@saraswati-js:` and an alias `@sjs:`
 1. [`DOCS`] Make sure sure to add
     * hero image
     * sidebar icon
