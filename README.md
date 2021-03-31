@@ -1,4 +1,4 @@
-# `@saraswati-js/runner`
+# `@saraswati-js/runtime`
 This is the main app that I'm working from. It is `nextjs` powered. `React` is the primary rendering engine. `Markdown` is it's primary documentation solution.
 
 This has no tests, it has no style guide (currently) and everything is a mess. This is currently a dumping ground until I get most of the features hammered out.
