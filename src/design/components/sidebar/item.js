@@ -8,6 +8,8 @@ export default function SidebarItem({ depthStep = 10, depth = 0, expanded, item,
   const [ collapsed, setCollapsed ] = React.useState(true);
   const { name, label, children, Icon, onClick: onClickProp } = item;
 
+  const href = (item.children.length  === 0) ? item.metadata.href : ''
+
   function toggleCollapse() {
     setCollapsed(prevValue => !prevValue);
   }
@@ -41,7 +43,7 @@ export default function SidebarItem({ depthStep = 10, depth = 0, expanded, item,
                     depth={depth + 1}
                     depthStep={depthStep}
                     item={subItem}
-                  />
+                  >{href}</SidebarItem>
                 )}
               </React.Fragment>
             ))}
