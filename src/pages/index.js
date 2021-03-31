@@ -1,12 +1,12 @@
-import Container from '../design/components/container'
-import MoreStories from '../design/pages/more-stories'
-import HeroPost from '../design/pages/hero-post'
-import Intro from '../design/pages/intro'
-import Layout from '../design/layout'
 import { getAllPosts } from '../lib/markdown/api'
 import Head from 'next/head'
 
-import Sidebar from '../design/components/sidebar'
+import Sidebar from '@components/sidebar'
+import Container from '@components/container'
+import MoreStories from '@pages/more-stories'
+import HeroPost from '@pages/hero-post'
+import Intro from '@pages/intro'
+import Layout from '../design/layouts'
 
 export default function Index({ allPosts }) {
   const morePosts = Object.values(allPosts)

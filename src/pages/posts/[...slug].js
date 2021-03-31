@@ -3,15 +3,15 @@ import ErrorPage from 'next/error'
 import Link from 'next/link'
 import Container from '../../design/components/container'
 import PostBody from '../../design/post/post-body'
-import Header from '../../design/layout/header'
+import Header from '../../design/layouts/header'
 import PostHeader from '../../design/post/post-header'
-import Layout from '../../design/layout'
+import Layout from '../../design/layouts'
 import PostTitle from '../../design/post/post-title'
 import Head from 'next/head'
-import { mdxToString, stringToMdx} from '../../lib/markdown/mdxSerialization'
-import Sidebar from '../../design/components/sidebar'
+import { mdxToString, stringToMdx} from 'lib/markdown/mdxSerialization'
+import Sidebar from '@components/sidebar'
 
-import { getAllPosts } from '../../lib/markdown/api'
+import { getAllPosts } from 'lib/markdown/api'
 
 const Back = () => (
   <Link href="/">
