@@ -13,6 +13,6 @@ module.exports = {
 
   env: {
     ROOT: __dirname,
-    CONTENT_PATH: path.join(__dirname, '_posts'),
+    CONTENT_PATH: path.join(__dirname, '@saraswati-cache/posts'),
   }
 }

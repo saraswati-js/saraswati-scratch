@@ -9,19 +9,12 @@ import path from 'path'
 const components = file => slug => ({
   Test,
   h1: ({ children }) => <h1>{children}</h1>,
-  img: ({ src, alt }) => {
-
-    console.log('file:', file)
-    console.log('slug:', slug)
-    console.log('image:', src)
-    
-    return (
-      <div>
-        THIS IS AN IMAGE YO!
-        <img alt={alt} src={src} />
-      </div>
-    )
-  }
+  img: ({ src, alt }) => (
+    <div>
+      THIS IS AN IMAGE YO!
+      <img alt={alt} src={src} />
+    </div>
+  )
 })
 
 /**

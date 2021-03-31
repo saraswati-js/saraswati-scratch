@@ -9,7 +9,7 @@ import Head from 'next/head'
 import Sidebar from '../design/components/sidebar'
 
 export default function Index({ allPosts }) {
-  const morePosts = Object.values(allPosts).slice(1)
+  const morePosts = Object.values(allPosts)
 
   return (
     <>
