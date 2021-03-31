@@ -14,9 +14,6 @@ import { getAllPosts } from '../../lib/markdown/api'
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
 
-  // console.log(post)
-  // console.log('did i get into here?')
-  
   // if (!router.isFallback && !post?.slug) {
   //   return <ErrorPage statusCode={404} />
   // }
@@ -77,8 +74,6 @@ export async function getStaticPaths() {
       },
     })),
   }
-
-  // clippy.copy(JSON.stringify(staticPaths), () => { console.log('Got it') })
 
   return staticPaths
 }
