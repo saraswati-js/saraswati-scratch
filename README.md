@@ -15,38 +15,25 @@ For instance I tested out each of the markdown utilities directly in this repo t
 
 ## Todo Topics
 1. Upgrade to react 17
-1. [`UTILS`] Make them one package
-    * I'm no sure yet but it might also be a good idea to separate out the binaries from the packages as well but that seems like overkill.
-    * Rename each one of them. They are terribly named.
-    * Use chockidar, in the future, to keep the DBs up to date.
-    * Make sure all utilities (for tests) are using `demo-content`
-    * Make sure all utility bin starts with `@saraswati-js:` and an alias `@sjs:`
 1. [`SIDEBAR`] Get the sidebar working
     * `For now ignore all projects/zones and don't add it to the URL`
-    * The sidebar link needs to work
     * Allow for the use of icons
       *  Shouldn't break if icon doesn't exist
     * Active url = active item
-    * Determine the urls
-    * Determine how to do the project base part (subdomain, not subdomain)
     * Get a better hashing algo for short strings (use for sharing)
         - https://github.com/bibig/node-shorthash
         - https://github.com/joakimbeng/short-hash/blob/master/src/index.js (hash-string)
         - http://sahatyalkabov.com/jsrecipes/#!/backend/generating-short-hashes
         - https://www.npmjs.com/package/string-hash
-    * Pull out tags to make a DB out of it
-    * Determine the
     * Would it make sense to have a gear icon?
         - To get git url
-        - To view different version
+        - To view version link
+        - Share link
     * How to handle version'd content?
-1. [`JSONDB`] Use a JSON db so I'm not writing directly to files myself.
-    * This way, hopefully, I can switch things out with a proper DB if required.
-        * If not I will need to write a wrapper around it and i'm not sure how effective that will be `¯\_(ツ)_/¯`
-    * Update utilities to use the new JSON DB implementation
 1. [`DOCS`] Make sure sure to add
+    * Breadcrumbs
     * hero image
-    * sidebar icon
+    * Sidebar icon
     * Make an async runner that will constantly update the dbs
         * sidebar db
         * tags db
