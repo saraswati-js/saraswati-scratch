@@ -15,10 +15,12 @@ For instance I tested out each of the markdown utilities directly in this repo t
 
 ## Todo Topics
 1. Upgrade to react 17
-1. [`SIDEBAR`] Get the sidebar working
-    * `For now ignore all projects/zones and don't add it to the URL`
+1. [`FRONTMATTER`]
     * Allow for the use of icons
       *  Shouldn't break if icon doesn't exist
+    * Hero image
+1. [`SIDEBAR`] Get the sidebar working
+    * `For now ignore all projects/zones and don't add it to the URL`
     * Active url = active item
     * Get a better hashing algo for short strings (use for sharing)
         - https://github.com/bibig/node-shorthash
@@ -31,14 +33,7 @@ For instance I tested out each of the markdown utilities directly in this repo t
         - Share link
     * How to handle version'd content?
 1. [`DOCS`] Make sure sure to add
-    * Breadcrumbs
-    * hero image
-    * Sidebar icon
-    * Make an async runner that will constantly update the dbs
-        * sidebar db
-        * tags db
-        * project dbs
-        * etc
+    * Hero image if exists. Will require work on the utilities
 1. [`ZONES`] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
     * This is prolly how i'll do the project url
     * If it is then I need to figure out how to do the runner specifically for a zone
