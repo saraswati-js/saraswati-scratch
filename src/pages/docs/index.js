@@ -1,7 +1,6 @@
 import Intro from '@pages/intro'
 import MoreStories from '@pages/more-stories'
-// import DocumentationPage from '@layouts/docs/index'
-import ProductLanding from '@layouts/landing-product'
+import DocumentationPage from '@layouts/docs/index'
 import { getAllPosts } from '@lib/markdown/api'
 
 export default function Index({ allPosts }) {
@@ -9,10 +8,10 @@ export default function Index({ allPosts }) {
 
   return (
     <>
-      <ProductLanding>
+      <DocumentationPage>
         <Intro />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-      </ProductLanding>
+      </DocumentationPage>
     </>
   )
 }
