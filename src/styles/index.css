@@ -1,22 +1,70 @@
-@tailwind base;
+/* @tailwind base; */
 
 /* Write your own custom base styles here */
 
 /* Start purging... */
-@tailwind components;
+/* @tailwind components; */
 /* Stop purging. */
 
 /* Write you own custom component styles here */
 
 /* Start purging... */
-@tailwind utilities;
+/* @tailwind utilities; */
 /* Stop purging. */
 
 /* Your own custom utilities */
 
+body {
+  /* padding-top: 56px; */
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 2rem;
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.container {
+  max-width: 1140px;
+}
+
 .left-side {
   width: 300px;
   float: left;
+}
+
+ol, ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin-left: 3rem;
+  list-style-type: disc;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
 }
 
 .right-side {
@@ -60,4 +108,86 @@
 .sidebar-item-expand-arrow-expanded {
   color: #09bb12;
   font-weight: bold;
+}
+
+img {
+  width: 100%;
+}
+
+/* .container {
+  width: 900px
+} */
+
+/* .col {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  background-color: #bbeffd;
+  border: 1px solid #61dafb;
+
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+} */
+
+/* col, div[class^="col-"], div[class*=" col-"] {
+  background-color: #bbeffd;
+  border: 1px solid #61dafb;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+} */
+
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template/simple-sidebar)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+
+ #wrapper {
+    overflow-x: hidden;
+ }
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.list-group-item {
+  border: none !important;
+  border-bottom: 1px solid rgba(0,0,0,.125);
 }

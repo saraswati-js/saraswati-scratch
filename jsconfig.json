@@ -2,9 +2,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@layouts/*": [ "src/design/layout/*" ],
-      "@components/*": [ "src/design/components/*" ],
+      "@styles/*": [ "src/styles/*" ],
       "@pages/*": [ "src/design/pages/*" ],
+      "@lib/*": [ "src/lib/*" ],
+      "@layouts/*": [ "src/design/layouts/*" ],
+      "@components/*": [ "src/design/components/*" ],
       "@saraswati-cache/*": [ "@saraswati-cache/*" ],
     }
   }

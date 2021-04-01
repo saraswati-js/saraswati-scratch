@@ -1,35 +1,18 @@
-import { getAllPosts } from '../lib/markdown/api'
-import Head from 'next/head'
-
-import Sidebar from '@components/sidebar'
-import Container from '@components/container'
-import MoreStories from '@pages/more-stories'
-import HeroPost from '@pages/hero-post'
 import Intro from '@pages/intro'
-import Layout from '../design/layouts'
+import MoreStories from '@pages/more-stories'
+import DocumentationPage from '@layouts/docs/index'
+import ProductLanding from '@layouts/landing-product'
+import { getAllPosts } from '@lib/markdown/api'
 
 export default function Index({ allPosts }) {
   const morePosts = Object.values(allPosts)
 
   return (
     <>
-      <Layout>
-        <Head>
-          <title>Next.js Blog Example with Markdown</title>
-        </Head>
-        <Container>
-          <Intro />
-          
-          <div className="left-side">
-            <Sidebar />
-          </div>
-          
-          <div className="right-side">
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-          </div>
-          
-        </Container>
-      </Layout>
+      <DocumentationPage>
+        <Intro />
+        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      </DocumentationPage>
     </>
   )
 }

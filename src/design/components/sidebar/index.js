@@ -7,23 +7,27 @@ import SidebarItem from './item'
 
 function Sidebar({ items = content, depthStep, depth, expanded }) {
   return (
-    <div className="sidebar">
+    <div className="bg-light border-right" id="sidebar-wrapper">
       <List disablePadding dense>
-        {items.map((sidebarItem, index) => (
-          <React.Fragment key={`${sidebarItem.name}${index}`}>
-            {sidebarItem === "divider" ? (<Divider style={{ margin: "6px 0" }} />) : (
-              <SidebarItem
-                depthStep={depthStep}
-                depth={depth}
-                expanded={expanded}
-                item={sidebarItem}
-              />
-            )}
-          </React.Fragment>
+        <div className="list-group list-group-flush">
+          {items.map((sidebarItem, index) => (
+            <React.Fragment key={`${sidebarItem.name}${index}`}>
+              {sidebarItem === "divider" ? (<Divider style={{ margin: "6px 0" }} />) : (
+                <SidebarItem
+                  depthStep={depthStep}
+                  depth={depth}
+                  expanded={expanded}
+                  item={sidebarItem}
+                />
+              )}
+            </React.Fragment>
         ))}
+        </div>
       </List>
     </div>
   );
 }
 
 export default Sidebar;
+
+{/* <div className="list-group-item list-group-item-action bg-light"></div> */ }
