@@ -1,4 +1,4 @@
-import Container from './container'
+import Container from 'react-bootstrap/Container'
 import cn from 'classnames'
 
 export default function Alert({ preview }) {

@@ -24,22 +24,27 @@ export default function SidebarItem({ depthStep = 10, depth = 0, expanded, item,
     }
   }
 
-  const href = (item.children.length === 0) ? `posts/${item.metadata.href}` : ''
+  const href = (item.children.length === 0) ? `/posts/${item.metadata.href}` : ''
   const text = label || name
+
+  const toplevelClass = (depth === 0)
+    ? 'sidebar-item-text list-group-item list-group-item-action bg-light'
+    : 'sidebar-item-text'
 
   return (
     <>
       <ListItem className="sidebar-item" onClick={onClick} button dense {...rest} >
         <div style={{ paddingLeft: depth * depthStep }} className="sidebar-item-content">
           {Icon && <Icon className="sidebar-item-icon" fontSize="small" />}
-          <div className="sidebar-item-text">
+          {/* "list-group-item list-group-item-action bg-light" */}
+          <div className={toplevelClass}>
             <Label text={text} href={href} />
           </div>
-          {href}
         </div>
         <ExpandIcon childs={children} collapsed />
       </ListItem>
       <Collapse in={!collapsed} timeout="auto" unmountOnExit>
+      
         {Array.isArray(children) ? (
           <List disablePadding dense>
             {children.map((subItem, index) => (

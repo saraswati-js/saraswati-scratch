@@ -15,6 +15,14 @@ For instance I tested out each of the markdown utilities directly in this repo t
 
 ## Todo Topics
 1. Upgrade to react 17
+1. [`THEMES`] Put in a proper layout
+    * Use Docbano for now.
+    * Layouts to create (and only these):
+        * Docs
+        * Landing page
+        * Error page
+        * Support page
+    * Convert styles to use SASS instead of what currently exists
 1. [`FRONTMATTER`]
     * Allow for the use of icons
       *  Shouldn't break if icon doesn't exist
@@ -37,10 +45,6 @@ For instance I tested out each of the markdown utilities directly in this repo t
 1. [`ZONES`] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
     * This is prolly how i'll do the project url
     * If it is then I need to figure out how to do the runner specifically for a zone
-1. [`THEMES`] Put in a proper layout
-    * Just buy one for now and figure it out later
-    * Perhaps you can get Amanda to help
-    * Do good styles
 1. [`PLUGINS`] Get some plugins in there and running
     * Math
     * UML
