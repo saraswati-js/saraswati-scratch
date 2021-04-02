@@ -4,9 +4,8 @@ import Test from './test'
 import linkHeadings from 'remark-autolink-headings'
 import math from 'remark-math'
 import katex from 'rehype-katex'
-// import oembed from 'remark-oembed'
-import embed from './plugin'
-// const components = {Test}
+import youtube from './plugin.youtube'
+import mermaid from './plugin.mermaid'
 
 const components = file => slug => ({
   Test,
@@ -23,15 +22,14 @@ const components = file => slug => ({
  */
 export async function mdxToString(mdx) {
   const config = {
-    // components,
     mdxOptions: {
       rehypePlugins: [
         katex,
       ],
 
       remarkPlugins: [
-        embed,
-        // oembed,
+        youtube,
+        mermaid,
         math,
         linkHeadings,
       ],
