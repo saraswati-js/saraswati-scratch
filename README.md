@@ -15,13 +15,7 @@ For instance I tested out each of the markdown utilities directly in this repo t
 
 ## Todo Topics
 1. Upgrade to react 17
-1. [`THEMES`] Put in a proper layout
-    * Use Docbano for now.
-    * Layouts to create (and only these):
-        * Docs
-        * Landing page
-        * Error page
-        * Support page
+1. [`THEMES`]
     * Convert styles to use SASS instead of what currently exists
 1. [`FRONTMATTER`]
     * Allow for the use of icons

@@ -24,7 +24,7 @@ export default function SidebarItem({ depthStep = 10, depth = 0, expanded, item,
     }
   }
 
-  const href = (item.children.length === 0) ? `/posts/${item.metadata.href}` : ''
+  const href = (item.children.length === 0) ? `/docs/${item.metadata.href}` : ''
   const text = label || name
 
   const toplevelClass = (depth === 0)
