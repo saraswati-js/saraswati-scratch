@@ -21,7 +21,7 @@ For instance I tested out each of the markdown utilities directly in this repo t
     * Allow for the use of icons
       *  Shouldn't break if icon doesn't exist
     * Hero image
-1. [`SIDEBAR`] Get the sidebar working
+1. [`SIDEBAR`]
     * `For now ignore all projects/zones and don't add it to the URL`
     * Active url = active item
     * Get a better hashing algo for short strings (use for sharing)
