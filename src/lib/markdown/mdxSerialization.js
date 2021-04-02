@@ -4,7 +4,8 @@ import Test from './test'
 import linkHeadings from 'remark-autolink-headings'
 import math from 'remark-math'
 import katex from 'rehype-katex'
-// import embed from './plugin'
+// import oembed from 'remark-oembed'
+import embed from './plugin'
 // const components = {Test}
 
 const components = file => slug => ({
@@ -29,7 +30,8 @@ export async function mdxToString(mdx) {
       ],
 
       remarkPlugins: [
-        // embed,
+        embed,
+        // oembed,
         math,
         linkHeadings,
       ],

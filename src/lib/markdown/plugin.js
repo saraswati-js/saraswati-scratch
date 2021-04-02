@@ -1,51 +1,111 @@
+// https://github.com/agentofuser/remark-oembed
+
 'use strict'
 
-var fs = require('fs')
-var path = require('path')
-var mimes = require('mime/lite')
+// var fs = require('fs')
+// var path = require('path')
+// var mimes = require('mime/lite')
 var visit = require('unist-util-visit')
 
 export default function embedImages() {
   return transformer
 }
 
+const isYoutubeEmbedLink = (node) => {
+  if (!node.url) {
+    return false
+  }
+
+  try {
+    const { host, pathname } = new URL(node.url)
+    const isYoutubeActivityLink =
+      (host.includes("youtube.com") || host.includes("youtube-nocookie.com")) &&
+      pathname.includes("/embed/")
+    const isLink = node.type === "link"
+    const isEmbedLink =
+      node.children.length === 1 &&
+      node.children[0].value.toLowerCase().includes("embed")
+
+    return isLink && isEmbedLink && isYoutubeActivityLink
+  } catch (e) {
+    return false
+  }
+}
+
+const getEmbedCode = (url) => {
+  return `<iframe width="560" height="315" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+}
+
 function transformer(tree, file, done) {
   var count = 0
 
-  visit(tree, 'image', visitor)
+  visit(tree, 'paragraph', (paragraphNode) => {
+    if (paragraphNode.children.length !== 1) {
+      return
+    }
+
+    const [node] = paragraphNode.children
+
+    console.log(node)
+
+    if (!isYoutubeEmbedLink(node)) {
+      return
+    }
+
+    youtubeElements.push(node)
+  })
 
   if (!count) {
     done()
   }
+}
 
-  function visitor(node) {
-    node.url = 'andric mother fucker'
-    // var url = node.url
+const butts = async ({ markdownAST, cache, reporter }, pluginOptions) => {
+  try {
+    const youtubeElements = []
 
-    // if (url && /^\.{1,2}\//.test(url)) {
-    //   count++
-    //   fs.readFile(path.resolve(file.cwd, file.dirname, url), 'base64', one)
-    // }
+    visit(markdownAST, "paragraph", (paragraphNode) => {
+      if (paragraphNode.children.length !== 1) {
+        return
+      }
 
-    // function one(err, data) {
-    //   var mime
+      const [node] = paragraphNode.children
 
-    //   if (err) {
-    //     count = Infinity
-    //     return done(err)
-    //   }
+      if (!isYoutubeEmbedLink(node)) {
+        return
+      }
 
-    //   mime = mimes.getType(path.extname(url))
+      youtubeElements.push(node)
+    })
 
-    //   if (mime) {
-    //     node.url = 'data:' + mime + ';base64,' + data
-    //   }
+    await Promise.all(
+      youtubeElements.map(async (node) => {
+        try {
+          let html = await cache.get(node.url)
 
-    //   node.url = 'andric mother fucker'
+          if (!html) {
+            html = getEmbedCode(node.url)
 
-    //   if (--count === 0) {
-    //     done()
-    //   }
-    // }
+            await cache.set(node.url, html)
+          }
+
+          node.type = `html`
+          node.value = html
+          node.children = undefined
+
+          if (pluginOptions.debug) {
+            reporter.success(`remark-youtube: EMBED OK ${node.url}`)
+          }
+        } catch (e) {
+          if (pluginOptions.debug) {
+            reporter.warn(`remark-youtube: EMBED NOK ${node.url}`)
+          }
+        }
+      })
+    )
+  } catch (e) {
+    reporter.warn(`remark-youtube: ${e.message}`)
   }
+
+  return markdownAST
 }
