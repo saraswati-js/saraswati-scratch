@@ -40,10 +40,10 @@ For instance I tested out each of the markdown utilities directly in this repo t
     * This is prolly how i'll do the project url
     * If it is then I need to figure out how to do the runner specifically for a zone
 1. [`PLUGINS`] Get some plugins in there and running
-    * UML
+    * Mermaid
+        - This requires a custom module that will also require the image parser/mover to work on.
     * Code
     * Playgounds
-    * Youtube (video url) converter
     * [2] Plugin errors
 
 ---

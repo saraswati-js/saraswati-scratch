@@ -5,7 +5,8 @@ import linkHeadings from 'remark-autolink-headings'
 import math from 'remark-math'
 import katex from 'rehype-katex'
 import youtube from './plugin.youtube'
-import mermaid from './plugin.mermaid'
+// import mermaid from './plugin.mermaid'
+// import codesandbox from 'remark-codesandbox'
 
 const components = file => slug => ({
   Test,
@@ -29,7 +30,8 @@ export async function mdxToString(mdx) {
 
       remarkPlugins: [
         youtube,
-        mermaid,
+        // [codesandbox, { mode: 'button' }],
+        // mermaid,
         math,
         linkHeadings,
       ],
