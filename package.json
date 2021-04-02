@@ -35,10 +35,12 @@
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.1",
     "readdirp": "^3.5.0",
+    "rehype-katex": "^4.0.0",
     "remark": "11.0.2",
     "remark-autolink-headings": "^6.0.1",
     "remark-embed-images": "^2.0.0",
     "remark-html": "10.0.0",
+    "remark-math": "^4.0.0",
     "serve": "^11.3.2",
     "unist-util-visit": "^2.0.3"
   },
