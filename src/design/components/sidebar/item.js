@@ -43,8 +43,7 @@ export default function SidebarItem({ depthStep = 10, depth = 0, expanded, item,
         </div>
         <ExpandIcon childs={children} collapsed />
       </ListItem>
-      <Collapse in={!collapsed} timeout="auto" unmountOnExit>
-      
+      <Collapse in={!collapsed} timeout="auto" unmountOnExit>      
         {Array.isArray(children) ? (
           <List disablePadding dense>
             {children.map((subItem, index) => (
