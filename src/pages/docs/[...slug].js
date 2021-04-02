@@ -9,14 +9,20 @@ import { mdxToString, stringToMdx} from '@lib/markdown/mdxSerialization'
 import Sidebar from '@components/sidebar'
 import { getAllPosts } from '@lib/markdown/api'
 import DocumentationPage from '@layouts/docs/index'
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
 
-// import ErrorPage from 'next/error'
-// import PostHeader from '../../design/post/post-header'
-// import Layout from '../../design/layouts'
+const capitalize = (s) => {
+  if (typeof s !== 'string') return ''
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
 
-
-const Back = () => (
-  <Link href="/"><a>[Home] </a></Link>
+const Crumbs = ({ items, title }) => (
+  <Breadcrumb>
+    <Breadcrumb.Item href="/docs">[TOP]&nbsp;</Breadcrumb.Item>
+    {items.map((e, i) => (<li key={i.toString()}> /&nbsp;{capitalize(e)}&nbsp;</li>))}
+    /&nbsp;
+    <Breadcrumb.Item href="/">{capitalize(title)}</Breadcrumb.Item>
+  </Breadcrumb>
 )
 
 export default function Post({ post, morePosts, preview }) {
@@ -28,12 +34,13 @@ export default function Post({ post, morePosts, preview }) {
         {router.isFallback ? (<PostTitle>Loading…</PostTitle>) : (
           <>
             <article className="mb-32">
+              <br />
+              <Crumbs items={post.meta.sidebar} title={post.title} />
               <Head>
                 <title>
                   {post.title} | Next.js Blog Example with Markdown
                 </title>
               </Head>
-              <p><Back />{post.meta.sidebar.join(' » ')}</p>              
               <p>Title: {post.title}</p>
 
               <PostBody> {stringToMdx(post.content)} </PostBody>

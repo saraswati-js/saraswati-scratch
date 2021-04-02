@@ -40,11 +40,39 @@ For instance I tested out each of the markdown utilities directly in this repo t
     * This is prolly how i'll do the project url
     * If it is then I need to figure out how to do the runner specifically for a zone
 1. [`PLUGINS`] Get some plugins in there and running
-    * Math
-    * UML
+    * Mermaid
+        - This requires a custom module that will also require the image parser/mover to work on.
     * Code
     * Playgounds
-    * Youtube (video url) converter
+    * [2] Plugin errors
 
 ---
 [1] Not completely but rather I put together something with the "the most complete" feature set that I'm thinking of which will often encompase the most important functionality. 
+[2] Some unmet peer deps that I should look into maybe.
+
+```
+@saraswati-js/runner@1.0.1 /Users/alibresinn/Projects/saraswati/saraswati-scratch
+├── UNMET PEER DEPENDENCY fibers@>= 3.1.0
+├── UNMET PEER DEPENDENCY jquery@1.9.1 - 3
+├── UNMET PEER DEPENDENCY node-sass@^4.0.0 || ^5.0.0
+├── UNMET PEER DEPENDENCY popper.js@^1.16.1
+├── UNMET PEER DEPENDENCY react@17.0.2
+├── UNMET PEER DEPENDENCY react-dom@17.0.2
+├─┬ rehype-katex@3.1.0  invalid
+│ ├─┬ hast-util-to-text@2.0.1 
+│ │ └── unist-util-find-after@3.0.0 
+│ ├─┬ katex@0.12.0 
+│ │ └── commander@2.20.3 
+│ └─┬ rehype-parse@6.0.2 
+│   ├─┬ hast-util-from-parse5@5.0.3 
+│   │ └── hastscript@5.1.2 
+│   └── parse5@5.1.1 
+├── remark-math@3.0.1  invalid
+└── UNMET PEER DEPENDENCY sass@^1.3.0
+```
+
+<!-- 
+
+Based on: https://github.com/mikesmit/nextjs-blog-starter-mdx
+
+ -->

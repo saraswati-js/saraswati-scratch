@@ -1,19 +1,20 @@
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
-import embed from './plugin'
 import Test from './test'
 import linkHeadings from 'remark-autolink-headings'
-import path from 'path'
-// const components = {Test}
+import math from 'remark-math'
+import katex from 'rehype-katex'
+import youtube from './plugin.youtube'
+// import mermaid from './plugin.mermaid'
+// import codesandbox from 'remark-codesandbox'
 
 const components = file => slug => ({
   Test,
   h1: ({ children }) => <h1>{children}</h1>,
   img: ({ src, alt }) => (
-    <div>
-      THIS IS AN IMAGE YO!
+    <span>
       <img alt={alt} src={src} />
-    </div>
+    </span>
   )
 })
 
@@ -22,10 +23,16 @@ const components = file => slug => ({
  */
 export async function mdxToString(mdx) {
   const config = {
-    // components,
     mdxOptions: {
+      rehypePlugins: [
+        katex,
+      ],
+
       remarkPlugins: [
-        // embed,
+        youtube,
+        // [codesandbox, { mode: 'button' }],
+        // mermaid,
+        math,
         linkHeadings,
       ],
     }
