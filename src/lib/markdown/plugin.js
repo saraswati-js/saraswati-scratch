@@ -1,11 +1,7 @@
-// https://github.com/agentofuser/remark-oembed
-
 'use strict'
 
-// var fs = require('fs')
-// var path = require('path')
-// var mimes = require('mime/lite')
-var visit = require('unist-util-visit')
+import visit from 'unist-util-visit'
+import getVideoId from 'get-video-id'
 
 export default function embedImages() {
   return transformer
@@ -17,14 +13,10 @@ const isYoutubeEmbedLink = (node) => {
   }
 
   try {
-    const { host, pathname } = new URL(node.url)
-    const isYoutubeActivityLink =
-      (host.includes("youtube.com") || host.includes("youtube-nocookie.com")) &&
-      pathname.includes("/embed/")
+    const { host } = new URL(node.url)
+    const isYoutubeActivityLink = (host.includes("youtube.com") || host.includes("youtube-nocookie.com"))
     const isLink = node.type === "link"
-    const isEmbedLink =
-      node.children.length === 1 &&
-      node.children[0].value.toLowerCase().includes("embed")
+    const isEmbedLink = true
 
     return isLink && isEmbedLink && isYoutubeActivityLink
   } catch (e) {
@@ -33,79 +25,24 @@ const isYoutubeEmbedLink = (node) => {
 }
 
 const getEmbedCode = (url) => {
-  return `<iframe width="560" height="315" src="${url}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+  const { id: videoid } = getVideoId(url)
+  return `<iframe width="560" height="315" src="https://www.youtube.com/embed/${videoid}" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>`
 }
 
-function transformer(tree, file, done) {
-  var count = 0
-
+function transformer(tree) {
   visit(tree, 'paragraph', (paragraphNode) => {
     if (paragraphNode.children.length !== 1) {
       return
     }
 
-    const [node] = paragraphNode.children
-
-    console.log(node)
+    let [node] = paragraphNode.children
 
     if (!isYoutubeEmbedLink(node)) {
       return
     }
 
-    youtubeElements.push(node)
+    node.type = 'jsx'
+    node.value = getEmbedCode(node.url)
   })
-
-  if (!count) {
-    done()
-  }
 }
 
-const butts = async ({ markdownAST, cache, reporter }, pluginOptions) => {
-  try {
-    const youtubeElements = []
-
-    visit(markdownAST, "paragraph", (paragraphNode) => {
-      if (paragraphNode.children.length !== 1) {
-        return
-      }
-
-      const [node] = paragraphNode.children
-
-      if (!isYoutubeEmbedLink(node)) {
-        return
-      }
-
-      youtubeElements.push(node)
-    })
-
-    await Promise.all(
-      youtubeElements.map(async (node) => {
-        try {
-          let html = await cache.get(node.url)
-
-          if (!html) {
-            html = getEmbedCode(node.url)
-
-            await cache.set(node.url, html)
-          }
-
-          node.type = `html`
-          node.value = html
-          node.children = undefined
-
-          if (pluginOptions.debug) {
-            reporter.success(`remark-youtube: EMBED OK ${node.url}`)
-          }
-        } catch (e) {
-          if (pluginOptions.debug) {
-            reporter.warn(`remark-youtube: EMBED NOK ${node.url}`)
-          }
-        }
-      })
-    )
-  } catch (e) {
-    reporter.warn(`remark-youtube: ${e.message}`)
-  }
-
-  return markdownAST
-}

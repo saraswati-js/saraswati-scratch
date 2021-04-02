@@ -70,3 +70,9 @@ For instance I tested out each of the markdown utilities directly in this repo t
 ├── remark-math@3.0.1  invalid
 └── UNMET PEER DEPENDENCY sass@^1.3.0
 ```
+
+<!-- 
+
+Based on: https://github.com/mikesmit/nextjs-blog-starter-mdx
+
+ -->
