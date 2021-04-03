@@ -39,12 +39,22 @@ For instance I tested out each of the markdown utilities directly in this repo t
 1. [`ZONES`] Add in [zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
     * This is prolly how i'll do the project url
     * If it is then I need to figure out how to do the runner specifically for a zone
+1. [`PLANTUML`]
+    - To get to work:
+        - `npm i metalsmith-plantuml`
+        - `npm i plantuml` (just calls a jar, do myself)
+        - `graphiz` → `brew install graphviz`
+    - Write plugin to handle in-memory change
+        - This will do it via base64 encryption
+    - Write plugin to handle creating files and linking
 1. [`PLUGINS`] Get some plugins in there and running
-    * Mermaid
-        - This requires a custom module that will also require the image parser/mover to work on.
     * Code
     * Playgounds
     * [2] Plugin errors
+1. [`RUNNER]
+    - Might be a good idea to start considering the markdown runner
+        - Works like babel/webpack. Uses plugins.
+            - Either strings or remark (pre v13)
 
 ---
 [1] Not completely but rather I put together something with the "the most complete" feature set that I'm thinking of which will often encompase the most important functionality. 
