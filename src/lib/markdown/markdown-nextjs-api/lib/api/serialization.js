@@ -1,6 +1,6 @@
 import renderToString from 'next-mdx-remote/render-to-string'
 import hydrate from 'next-mdx-remote/hydrate'
-import Test from './test'
+import Test from './components/test'
 import linkHeadings from 'remark-autolink-headings'
 import math from 'remark-math'
 import katex from 'rehype-katex'

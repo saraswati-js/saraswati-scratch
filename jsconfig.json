@@ -8,6 +8,14 @@
       "@layouts/*": [ "src/design/layouts/*" ],
       "@components/*": [ "src/design/components/*" ],
       "@saraswati-cache/*": [ "@saraswati-cache/*" ],
+
+      // Everything after here are libraries that haven't been moved out
+      "@saraswati-js/remark-graphiz": [ "src/lib/markdown/remark-grapher/*" ],
+      "@saraswati-js/markdown-nextjs-api": [ "src/lib/markdown/markdown-nextjs-api/*" ],
+      "@saraswati-js/design-core": [ "src/lib/markdown/markdown-nextjs-api/*" ],
+      "@saraswati-js/design-components": [ "src/lib/markdown/markdown-nextjs-api/*" ],
+      "@saraswati-js/design-layouts": [ "src/lib/markdown/markdown-nextjs-api/*" ],
+      "@saraswati-js/design-pages": [ "src/lib/markdown/markdown-nextjs-api/*" ],
     }
   }
 }
